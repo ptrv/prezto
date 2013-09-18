@@ -10,5 +10,102 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# Customize to your needs...
+REPORTTIME=10 # Show elapsed time if command took more than X seconds
 
+function source_configs(){
+    echo 'source ~/.zshrc & ~/.zshenv'
+    source ~/.zshenv
+    source ~/.zshrc
+}
+# aliases
+
+# alias reload='source $ZSH/custom/linux/aliases_linux.zsh'
+alias sz="source_configs"
+# alias ea="emacsclient $ZSH/custom/linux/aliases_linux.zsh && reload" # Edit aliases
+alias ee="emacsclient --no-wait ~/.zshenv"
+alias zshconfig="emacsclient ~/.zshrc && source ~/.zshrc"
+alias zprezto="emacsclient --no-wait ~/.zprezto"
+
+alias myip='curl -s http://checkrealip.com/ | grep "Current IP Address"'
+
+alias c='clear'
+# alias cdd='cd -'  # goto last dir cd'ed from
+# alias cl='clear; l'
+# alias cl='clear && pwd && ls -FhG'
+alias cl='clear && ls -FhG'
+alias l.='ls -d .[^.]*'
+alias md='mkdir -p'
+alias mkdd='mkdir $(date +%Y%m%d)'
+
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias ......='cd ../../../../..'
+
+alias e='emacsclient -n'
+alias e.='emacsclient -n .'
+
+# Git
+alias wtf="git-wtf"
+alias gk="gitk --all &"
+alias gkw="gitk --all --word-diff=color &"
+alias ggui="git gui &"
+alias ungit="find . -name '.git' -exec rm -rf {} \;"
+alias eg='git config -e'
+
+# Mercurial
+alias hge="$EDITOR .hg/hgrc"
+alias hgk="hg view"
+
+# Emacs
+#alias emacs="emacsclient"
+alias em="emacsclient"
+alias emm="emacsclient -n -c"
+
+alias je="jedit"
+alias slime="sublime-text"
+
+# Cmake
+function cmg(){cmake-gui $@ &}
+
+# Ruby
+# alias r="rake"
+alias irb='irb --readline -r irb/completion'
+
+# removing dotfiles
+alias rm-Dot_svn="find . -name '.svn' -exec rm -rf '{}' \;"
+alias rm-Dot_git="find . -name '.git' -exec rm -rf '{}' \;"
+alias rm-elc="find ./ -type f -name '*.elc' -delete;"
+
+# # Workaround for emacs tramp mode hanging on connect
+# # http://www.emacswiki.org/emacs/TrampMode#toc7
+# if [[ "$TERM" == "dumb" ]]
+# then
+#     unsetopt zle
+#     unsetopt prompt_cr
+#     unsetopt prompt_subst
+#     unfunction precmd
+#     unfunction preexec
+#     PS1='$ '
+# fi
+
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+    ALIASES_LINUX="${ZDOTDIR:-$HOME}/.zprezto/custom/aliases_linux.zsh"
+    [[ -f "$ALIASES_LINUX" ]] && source "$ALIASES_LINUX"
+elif [[ "$OSTYPE" == darwin* ]]; then
+    ALIASES_OSX="${ZDOTDIR:-$HOME}/.zprezto/custom/aliases_osx.zsh"
+    [[ -f "$ALIASES_OSX" ]] && source "$ALIASES_OSX"
+fi
+
+LOCAL_ALIASES="${ZDOTDIR:-$HOME}/.zprezto/custom/aliases_$HOST.zsh"
+if [ -s "$LOCAL_ALIASES" ]; then
+    source $LOCAL_ALIASES
+fi
+
+LOCAL_CONF="${ZDOTDIR:-$HOME}/.zprezto/custom/conf_$HOST.zsh"
+if [ -s "$LOCAL_CONF" ]; then
+    source $LOCAL_CONF
+fi
+
+# go completion
+[[ -f "/usr/local/go/misc/zsh/go" ]] && source "/usr/local/go/misc/zsh/go"

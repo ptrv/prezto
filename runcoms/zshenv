@@ -17,8 +17,8 @@ fi
 # Editors
 #
 
-export EDITOR='nano'
-export VISUAL='nano'
+export EDITOR='emacsclient'
+# export VISUAL='emacsclient'
 export PAGER='less'
 
 #
@@ -39,6 +39,8 @@ typeset -gU cdpath fpath mailpath path
 # cdpath=(
 #   $cdpath
 # )
+
+# custom env
 
 # Set the list of directories that Zsh searches for programs.
 path=(
@@ -74,3 +76,9 @@ if [[ ! -d "$TMPPREFIX" ]]; then
   mkdir -p "$TMPPREFIX"
 fi
 
+export TERM=xterm-256color
+
+LOCAL_ENV="${ZDOTDIR:-$HOME}/.zprezto/custom/env_$HOST.zsh"
+if [ -s "$LOCAL_ENV" ]; then
+    source $LOCAL_ENV
+fi
