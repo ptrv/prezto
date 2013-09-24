@@ -1,3 +1,5 @@
+alias E="SUDO_EDITOR=\"emacsclient -c -a emacs\" sudoedit"
+
 alias gwd="pwd | xclip"
 
 # iftop shows Bytes/sec
@@ -36,3 +38,21 @@ alias afind='ag -il'
 alias upgrade='yaourt -Syua'
 
 alias pacls='pacman -Ql'
+
+################################################
+
+function nano_or_sudo_nano(){
+    if [[ -w "$1" ]]; then
+        nano $1
+    else
+        echo -n "You don't have write permission for $1, use sudo nano instead? (y/n)? "
+        read reply
+
+        if [[ $reply == "y" ]]; then
+            sudo nano $1
+        else
+            nano $1
+        fi
+    fi
+}
+alias nano=nano_or_sudo_nano
