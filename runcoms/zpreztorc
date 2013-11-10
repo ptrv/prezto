@@ -39,7 +39,8 @@ zstyle ':prezto:load' pmodule \
   'homebrew' \
   'python' \
   'fasd' \
-  'rsync'
+  'rsync' \
+  'emacs'
 
 #
 # Editor
