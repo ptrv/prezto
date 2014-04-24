@@ -49,6 +49,7 @@ typeset -gU cdpath fpath mailpath path
 
 # Set the list of directories that Zsh searches for programs.
 path=(
+  ~/bin
   /usr/local/{bin,sbin}
   $path
 )
@@ -83,7 +84,7 @@ fi
 
 export TERM=xterm-256color
 
-LOCAL_ENV="${ZDOTDIR:-$HOME}/.zprezto/custom/env_$HOST.zsh"
+LOCAL_ENV="${ZDOTDIR:-$HOME}/.zprezto/custom/env.zsh"
 if [ -s "$LOCAL_ENV" ]; then
     source $LOCAL_ENV
 fi

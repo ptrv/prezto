@@ -1,3 +1,6 @@
 *.zwc
 *.zwc.old
 modules/*/cache.zsh
+custom/env.zsh
+custom/aliases.zsh
+custom/conf.zsh

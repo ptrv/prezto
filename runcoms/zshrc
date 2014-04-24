@@ -89,20 +89,21 @@ alias rm-elc="find ./ -type f -name '*.elc' -delete;"
 #     PS1='$ '
 # fi
 
+ALIASES=""
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
-    ALIASES_LINUX="${ZDOTDIR:-$HOME}/.zprezto/custom/aliases_linux.zsh"
-    [[ -f "$ALIASES_LINUX" ]] && source "$ALIASES_LINUX"
+    ALIASES="${ZDOTDIR:-$HOME}/.zprezto/custom/aliases_linux.zsh"
 elif [[ "$OSTYPE" == darwin* ]]; then
-    ALIASES_OSX="${ZDOTDIR:-$HOME}/.zprezto/custom/aliases_osx.zsh"
-    [[ -f "$ALIASES_OSX" ]] && source "$ALIASES_OSX"
+    ALIASES="${ZDOTDIR:-$HOME}/.zprezto/custom/aliases_osx.zsh"
 fi
+[[ -f "$ALIASES" ]] && source "$ALIASES"
+alias ea="emacsclient '$ALIASES' && reload" # Edit aliases
 
-LOCAL_ALIASES="${ZDOTDIR:-$HOME}/.zprezto/custom/aliases_$HOST.zsh"
+LOCAL_ALIASES="${ZDOTDIR:-$HOME}/.zprezto/custom/aliases.zsh"
 if [ -s "$LOCAL_ALIASES" ]; then
     source $LOCAL_ALIASES
 fi
 
-LOCAL_CONF="${ZDOTDIR:-$HOME}/.zprezto/custom/conf_$HOST.zsh"
+LOCAL_CONF="${ZDOTDIR:-$HOME}/.zprezto/custom/conf.zsh"
 if [ -s "$LOCAL_CONF" ]; then
     source $LOCAL_CONF
 fi
