@@ -107,6 +107,3 @@ LOCAL_CONF="${ZDOTDIR:-$HOME}/.zprezto/custom/conf_$HOST.zsh"
 if [ -s "$LOCAL_CONF" ]; then
     source $LOCAL_CONF
 fi
-
-# go completion
-[[ -f "/usr/local/go/misc/zsh/go" ]] && source "/usr/local/go/misc/zsh/go"
