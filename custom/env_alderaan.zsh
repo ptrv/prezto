@@ -12,7 +12,8 @@ export SC_SOURCE_DIR="~/compiledir/SuperCollider3"
 export PYTHONPATH=${PYTHONPATH}:~/src/pysal:/usr/share/qgis/python
 export PYTHONSTARTUP=~/.pythonrc
 
-export ANDROID_SDK=/home/peter/SDKs/android-sdk-linux_x86
+export ANDROID_HOME=$HOME/applications/android-studio/sdk
+# export ANDROID_SDK=/home/peter/SDKs/android-sdk-linux_x86
 # export PATH=$PATH:$ANDROID_SDK/platform-tools
 
 #export PATH=$PATH:~/src/fast-export/bin
@@ -38,11 +39,9 @@ export GOPATH=$HOME/gocode
 # export PATH=$PATH:$HOME/.cabal/bin
 
 path=(
- ~/bin
- $ANDROID_SDK/platform-tools
- /usr/local/go/bin
- $GOPATH/bin
- ~/.cabal/path
- $path
- ~/.gem/ruby/2.0.0/bin
+  $ANDROID_HOME/platform-tools
+  /usr/local/go/bin
+  $GOPATH/bin
+  ~/.cabal/bin
+  $path
 )
