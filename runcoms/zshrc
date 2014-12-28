@@ -103,7 +103,9 @@ if [ -s "$LOCAL_ALIASES" ]; then
     source $LOCAL_ALIASES
 fi
 
-LOCAL_CONF="${ZDOTDIR:-$HOME}/.zprezto/custom/conf_$HOST.zsh"
+LOCAL_CONF="${ZDOTDIR:-$HOME}/.zprezto/custom/conf.zsh"
 if [ -s "$LOCAL_CONF" ]; then
     source $LOCAL_CONF
+else
+    echo "'$LOCAL_CONF' not loaded"
 fi
