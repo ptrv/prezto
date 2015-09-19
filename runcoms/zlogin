@@ -21,3 +21,8 @@ if (( $+commands[fortune] )); then
     print
   fi
 fi
+
+LOCAL_LOGIN="${ZDOTDIR:-$HOME}/.zprezto/custom/login.zsh"
+if [ -s "$LOCAL_LOGIN" ]; then
+    source $LOCAL_LOGIN
+fi
