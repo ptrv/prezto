@@ -26,6 +26,7 @@ zstyle ':prezto:load' zfunction 'zargs' 'zmv'
 zstyle ':prezto:load' pmodule \
   'environment' \
   'terminal' \
+  'autosuggestions' \
   'editor' \
   'history' \
   'directory' \
@@ -49,7 +50,7 @@ zstyle ':prezto:load' pmodule \
 #
 
 # Set the query found color.
-# zstyle ':prezto:module:autosuggestions:color' found ''
+zstyle ':prezto:module:autosuggestions:color' found 'fg=242'
 
 #
 # Editor
