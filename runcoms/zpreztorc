@@ -38,6 +38,7 @@ zstyle ':prezto:load' pmodule \
   'pacman_ptrv' \
   'osx' \
   'homebrew' \
+  'dnf' \
   'python' \
   'fasd' \
   'rsync' \
