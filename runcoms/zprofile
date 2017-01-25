@@ -18,7 +18,8 @@ fi
 # Editors
 #
 
-export EDITOR='emacsclient'
+# export EDITOR='emacsclient'
+export EDITOR=$HOME/bin/editor
 # export VISUAL='emacsclient'
 export PAGER='less'
 
