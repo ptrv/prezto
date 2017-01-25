@@ -20,3 +20,6 @@ alias pacc='pacman -C'
 alias yain='yaourt -S'
 
 alias yaget='yaourt -G'
+
+alias upgrade='yaourt -Syua'
+alias upgraded='yaourt -Syua --devel'

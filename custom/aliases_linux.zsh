@@ -33,13 +33,6 @@ alias k9="killall -9"
 alias afind='ag -il'
 
 ################################################
-# pacman/yaourt
-
-alias upgrade='yaourt -Syua'
-
-alias pacls='pacman -Ql'
-
-################################################
 
 function nano_or_sudo_nano(){
     if [[ -w "$1" ]]; then

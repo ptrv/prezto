@@ -68,6 +68,9 @@ alias pacs='pacman -Ss'
 # alias pacS='pacman --query --search'
 alias pacS='pacman -Qs'
 
+# List package files.
+alias pacls='pacman -Ql'
+
 # Lists orphan packages.
 # alias pacman-list-orphans='sudo pacman --query --deps --unrequired'
 alias pacman-list-orphans='sudo pacman -Qdt'
