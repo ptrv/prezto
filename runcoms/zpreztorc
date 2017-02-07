@@ -29,6 +29,7 @@ zstyle ':prezto:load' pmodule \
   'autosuggestions' \
   'editor' \
   'history' \
+  'history-substring-search' \
   'directory' \
   'spectrum' \
   'utility' \
